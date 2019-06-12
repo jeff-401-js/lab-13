@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
     }
   }
   catch(e) {
-    next(e);
+    _authError();
   }
   
   
@@ -44,8 +44,8 @@ module.exports = (req, res, next) => {
     }
   }
   
-  function _authError() {
-    next('Invalid User ID/Password');
+  function _authError(){
+    next({status: 401, statusMessage: 'Unauthorized', message: 'Invalid User ID/password'});
   }
   
 };
