@@ -67,14 +67,19 @@ users.methods.comparePassword = function(password) {
     .then( valid => valid ? this : null);
 };
 
-users.methods.generateToken = function() {
-  
-  let token = {
+users.methods.generateToken = function(type){
+  let tokenData = {
     id: this._id,
-    role: this.role,
+    capabilities: this.role,
+    type: type || 'user',
   };
-  
-  return jwt.sign(token, process.env.SECRET);
+
+  let options = {};
+  if(tokenData.type === 'user'){
+    options = {expiresIn: '15m'};
+  }
+
+  return jwt.sign(tokenData, process.env.SECRET, options);
 };
 
 module.exports = mongoose.model('users', users);
