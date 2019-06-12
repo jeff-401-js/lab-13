@@ -33,6 +33,12 @@ module.exports = (req, res, next) => {
       .catch(next);
   }
 
+  function _authBearer(authString){
+    return User.authenticateBearer(authString)
+      .then(user => _authenticate(user))
+      .catch(next);
+  }
+  
   function _authenticate(user) {
     if(user) {
       req.user = user;
