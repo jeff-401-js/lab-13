@@ -36,6 +36,7 @@ users.statics.createFromOauth = function(email) {
       console.log('Creating new user');
       let username = email;
       let password = 'none';
+      let role = 'user';
       return this.create({username, password, email});
     });
 
@@ -81,5 +82,9 @@ users.methods.generateToken = function(type){
 
   return jwt.sign(tokenData, process.env.SECRET, options);
 };
+
+// users.methods.generateKey = function() {
+//   return this.generateToken('key');
+// };
 
 module.exports = mongoose.model('users', users);
