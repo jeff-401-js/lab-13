@@ -23,6 +23,7 @@ Jeff
 * `PORT` - 3000
 * `SECRET` - somestring
 * `MONGODB_URI` - mongodb://localhost:27017/class-13
+* `EXPIRE_TIME` - 15m
 
 #### Running the app
 * `nodemon index.js`

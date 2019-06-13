@@ -88,7 +88,7 @@ users.methods.generateToken = function(type){
 
   let options = {};
   if(tokenData.type === 'user'){
-    options = {expiresIn: '15m'};
+    options = {expiresIn: process.env.EXPIRE_TIME};
   }
 
   return jwt.sign(tokenData, process.env.SECRET, options);

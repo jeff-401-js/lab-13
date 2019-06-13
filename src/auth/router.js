@@ -32,4 +32,9 @@ authRouter.get('/oauth', (req,res,next) => {
     .catch(next);
 });
 
+authRouter.post('/key', auth, (req, res, next) => {
+  let key = req.user.generateKey();
+  res.status(200).send(key);
+});
+
 module.exports = authRouter;
