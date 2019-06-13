@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const jwtDecode = require('jwt-decode');
 
 const usedTokens = new Set();
 
@@ -51,6 +52,16 @@ users.statics.authenticateBasic = function(auth) {
 
 users.statics.authenticateBearer = function(token){
 
+  console.log('here');
+  console.log(token);
+  // console.log(jwtDecode(token));
+  // let decoded = jwtDecode(token);
+  // console.log(decoded);
+  // if(process.env.SWITCH === 'on'){
+    
+  // }else{
+
+  // }
   if(usedTokens.has(token)){
     return Promise.reject('Invalid token');
   }
@@ -83,8 +94,9 @@ users.methods.generateToken = function(type){
   return jwt.sign(tokenData, process.env.SECRET, options);
 };
 
-// users.methods.generateKey = function() {
-//   return this.generateToken('key');
-// };
+
+users.methods.generateKey = function() {
+  return this.generateToken('key');
+};
 
 module.exports = mongoose.model('users', users);
