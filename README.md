@@ -7,7 +7,7 @@ Jeff
 * [![Build Status](https://www.travis-ci.com/jeff-401-js/lab-04.svg?branch=dev)](https://www.travis-ci.com/jeff-401-js/lab-13)
 
 ### Links and Resources
-* [submission PR](https://github.com/JeffLawrence1/lab-13/pull/1)
+* [submission PR](https://github.com/jeff-401-js/lab-13/pull/1)
 * [travis](https://www.travis-ci.com/jeff-401-js/lab-13)
 * [heroku](https://rocky-bastion-34644.herokuapp.com/)
 
